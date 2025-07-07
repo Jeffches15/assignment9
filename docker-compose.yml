@@ -2,9 +2,16 @@ version: '3.8'
 
 services:
   # Service: web
-  web:
+  web: # this is basically main.py
     build: .
-    container_name: fastapi_calculator
+    # make sure image has the :latest tag
+    image: jeffches15/assignment9:latest
+
+    # Container Naming
+    container_name: assignment9_calculator
+
+    # first port 8000 is external network (my computer)
+    # routing to port 8000 for this container
     ports:
       - "8000:8000"
     volumes:
@@ -20,6 +27,7 @@ services:
       - app-network
 
   # Service: db (PostgreSQL)
+  # this is the hostname/address in pgadmin for our server
   db:
     image: postgres
     container_name: postgres_db
@@ -40,6 +48,7 @@ services:
       - app-network
 
   # Service: pgadmin
+  # pgAdmin is a free, open-source graphical user interface (GUI) tool for managing PostgreSQL databases.
   pgadmin:
     image: dpage/pgadmin4  # Updated to a newer version
     container_name: pgadmin
@@ -56,6 +65,7 @@ services:
     networks:
       - app-network
 
+# kinda like your USB drive for data
 volumes:
   postgres_data:
     driver: local
