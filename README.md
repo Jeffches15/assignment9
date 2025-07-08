@@ -1,6 +1,7 @@
 # 📦 Project Setup
 
----
+## DockerHub Images:
+https://hub.docker.com/r/jeffches15/assignment9
 
 # 🧩 1. Install Homebrew (Mac Only)
 
